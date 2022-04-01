@@ -1,0 +1,17 @@
+<!-- <div class="list-item-container">
+ <ul class="list-item">
+      <li class='item' *ngFor="let product of products">
+        <a href="">
+        <item [item]="product"></item>
+        </a>
+      </li>
+    </ul>
+</div> -->
+
+<ion-slides [options]="itemSlideOpts">
+  <ion-slide *ngFor="let product of products">
+    <a href="">
+      <item [item]="product"></item>
+    </a>
+  </ion-slide>
+</ion-slides>

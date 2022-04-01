@@ -1,0 +1,35 @@
+<ion-header>
+    <div class="brand-container">
+        <p>Sell Sneaker $ </p>
+        <img class="sneaker-logo" src="./assets/sneakerlogo.png" />
+      </div>
+  </ion-header>
+  
+  <ion-content id="tab2-background">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Photo Gallery</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <p>Upload your Sneaker picture</p>
+    <ion-fab-button (click)="photoService.addNewToGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    <ion-slides [options]="itemSlideOpts">
+      <ion-slide *ngFor="let photo of photoService.photos; index as position">
+        <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, position)"></ion-img>
+      </ion-slide>
+    </ion-slides>
+    <div></div>
+    <ion-label>Sneaker name</ion-label>
+    <ion-input></ion-input>
+    <p>Price(USD)</p>
+    <ion-input type="number" value="0"></ion-input>
+  
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="presentAlert()" className="post-button" >
+        Post
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>

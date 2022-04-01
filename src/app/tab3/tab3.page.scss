@@ -1,0 +1,27 @@
+ion-content,ion-toolbar{
+    --background:white;
+    color: black;
+}
+ion-content{
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}
+ion-title{
+    font-weight:550;
+    text-align: center;
+}
+ion-item{
+    --background:white;
+    color: black;
+}
+h2{
+    font-weight:550;
+}
+p{
+    color: rgb(88, 88, 88);
+}
+.setting-list{
+    background-color: white;
+}

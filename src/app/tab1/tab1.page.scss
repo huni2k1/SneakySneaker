@@ -1,0 +1,35 @@
+.text-container{
+  display:flex;
+  justify-content: space-between;
+}
+.brands-list{
+    display: flex;
+    justify-content: space-between;
+    background-color: #e9c46a;
+}
+ion-item{
+  --background: #e9c46a;
+  --inner-border-width:0px;
+}
+h2{
+    color:black;
+    font-weight: 700;
+}
+p{
+  color:black;
+  margin-top:12px;
+  font-weight: 600;
+}
+span{
+  font-size:25px;
+  font-weight: 800;
+}
+ion-content {
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    background-color: white;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }

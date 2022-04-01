@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-slides pager="true" #slides (ionSlideDidChange)="slideChanged($event)" [options]="adslideOpts">
+    <ion-slide *ngFor="let ad of ads,let i = index">
+      <a href="">
+        <img src="{{ad.img}}">
+      </a>
+    </ion-slide>
+  </ion-slides>
+  <h2>Shop by Category</h2>
+  <ion-list class="brands-list">
+    <ion-item>
+      <a>
+        <img src="assets/brands/jordan.png">
+      </a>
+    </ion-item>
+    <ion-item>
+      <a>
+        <img src="assets/brands/supreme.png">
+      </a>
+    </ion-item>
+    <ion-item>
+      <a>
+        <img src="assets/brands/yzy.png">
+      </a>
+    </ion-item>
+  </ion-list>
+  <div class="text-container">
+  <h2>Popular</h2>
+  <p> See All <span>&#8594;</span> </p>
+  </div>
+  <item-list></item-list>
+  <div class="text-container">
+      <h2>Recommended for you</h2>
+      <p> See All <span>&#8594;</span> </p>
+      </div>
+  <item-list></item-list>
+  </ion-content>
+  
+  
+  

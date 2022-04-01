@@ -1,0 +1,26 @@
+p{
+    margin:4px 0 0 4px;
+}
+.item-container {
+    background-color: white;
+    border: 1px #5a5852 solid;
+    color: black;
+    padding: 5px;
+    text-align: left;
+    width:150px;
+    height: 230px;
+}
+.item-price {
+    font-size: larger;
+    font-weight: bold;
+}
+.item-sold{
+    font-size: smaller;
+}
+.item-name {
+    font-family: "Fredoka", sans-serif;
+    line-height: 15px;
+    max-height: 50px;
+    font-size: 14px;
+    margin-top:10px;
+}

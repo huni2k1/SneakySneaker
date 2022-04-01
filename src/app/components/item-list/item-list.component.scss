@@ -1,0 +1,22 @@
+a {
+  text-decoration: none;
+}
+.list-item-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+img{
+  width:120px;
+}
+ion-slides{
+  width:100%;
+  margin-left:3px;
+}
+// .list-item::-webkit-scrollbar {
+//     display: none;
+//   }
+//   .list-item {
+//     -ms-overflow-style: none;  /* IE and Edge */
+//     scrollbar-width: none;  /* Firefox */
+//   }
