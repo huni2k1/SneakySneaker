@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+//import { ppid } from 'process';
 
 const routes: Routes = [
 
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'user-info',
     loadChildren: () => import('./user-info/user-info.module').then(m => m.UserInfoPageModule)
+  },
+  {
+    path:'signup',
+    loadChildren: () => import('./sign-up/sign-up.module').then(m=>m.SignUpModule)
   }
 ];
 @NgModule({

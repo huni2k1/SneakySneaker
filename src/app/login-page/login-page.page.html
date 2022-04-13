@@ -5,7 +5,7 @@
   </div>
   <div class="login-container">
     <ion-item class="account-container">
-      <ion-label>Account</ion-label>
+      <ion-label>Email</ion-label>
       <ion-input type="email" autocomplete="on" autofocus="true"></ion-input>
     </ion-item>
     <ion-item class="password-container">
@@ -13,7 +13,10 @@
       <ion-input type="password" autocomplete="on" autofocus="true"></ion-input>
     </ion-item>
     <div class="button-container">
-      <ion-button href="/tabs/tab1">Login</ion-button>
+      <ion-button class="btn" [routerLink]="['tabs']" type="submit" color="primary" expand="full" (click)="presentAlert()">Login</ion-button>
+    </div>
+    <div class="button-container">
+      <ion-button class="btn" [routerLink]="['../signup']" type="submit" color="primary" expand="full">Sign Up</ion-button>
     </div>
   </div>
 </ion-content>

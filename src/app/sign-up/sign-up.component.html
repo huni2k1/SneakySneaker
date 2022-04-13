@@ -1,0 +1,30 @@
+
+<ion-content>
+  <div class="brand-container">
+    <img class="sneaker-pic" src="assets/sneakerlogo.png" />
+  </div>
+  <div class="login-container">
+    <ion-item class="first-container">
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" autocomplete="on" autofocus="true"></ion-input>
+    </ion-item>
+    <ion-item class="account-container">
+      <ion-label>Last Name</ion-label>
+      <ion-input type="text" autocomplete="on" autofocus="true"></ion-input>
+    </ion-item>
+    <ion-item class="account-container">
+      <ion-label>Email</ion-label>
+      <ion-input type="email" autocomplete="on" autofocus="true"></ion-input>
+    </ion-item>
+    <ion-item class="last-container">
+      <ion-label>Password</ion-label>
+      <ion-input type="password" autocomplete="on" autofocus="true"></ion-input>
+    </ion-item>
+    <div class="button-container">
+      <ion-button class="btn" [routerLink]="['../signup']" type="submit" color="primary" expand="full">Sign Up</ion-button>
+    </div>
+    <div class="button-container">
+      <ion-button class="btn" [routerLink]="['../login-page']" type="submit" color="primary" expand="full">Login</ion-button>
+    </div>
+  </div>
+</ion-content>
