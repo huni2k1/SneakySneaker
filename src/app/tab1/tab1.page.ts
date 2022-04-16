@@ -8,12 +8,12 @@ import { IonSlides } from '@ionic/angular';
 })
 export class Tab1Page {
   adsIndex: number;
+  typeOfList1='Popular'
   @ViewChild('slides', {static: true}) slides: IonSlides;
   ads = [
     { "img": "assets/advertises/Advertise1.png" },
     { "img": "assets/advertises/Advertise2.png" },
     { "img": "assets/advertises/Advertise3.png" },
-
   ]
   slideChanged(e: any) {
     this.slides.getActiveIndex().then((index: number) => {

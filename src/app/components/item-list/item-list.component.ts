@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { getDatabase,onValue,set,ref, Database } from "firebase/database";
 
 @Component({
   selector: 'item-list',
@@ -6,28 +8,29 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./item-list.component.scss'],
 })
 export class ItemListComponent implements OnInit {
-  @Input()listLabel:string
+  @Input() listLabel: string
   products = [
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},   { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},   { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},   { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},   { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
-    { "id": 1, "name": " Nike Air Force One Low Bredtoe", "sold": 456, "price": "170.00" , "img":"assets/sneakers/Jordan1LowShatterbackboard.jpg"},
   ];
-  itemSlideOpts={
+  itemSlideOpts = {
     freeMode: true,
     slidesPerView: 2.5,
-    speed:200,
-    spaceBetween:5,
-    slidesOffsetBefore:10
+    speed: 200,
+    spaceBetween: 5,
+    slidesOffsetBefore: 10
   }
-  constructor() { }
+  constructor(firebase: FirebaseService) {
+    const db = getDatabase();
+    this.products=[]
+    onValue(ref(db,'products'), (snapshot)=>{
+     const data=snapshot.val();
+     let pt=1;
+     while(data[pt]){
+       pt++;
+     }
+})
+}
 
   ngOnInit() {
-    this.listLabel="List Label"
-   }
-
+    console.log(this.listLabel)
+  }
 }

@@ -54,7 +54,7 @@ export class PhotoService {
     const savedImageFile = await this.savePicture(capturedPhoto);
 
     // Add new photo to Photos array
-    this.photos.unshift(savedImageFile);
+    this.photos[0]=savedImageFile;
 
     // Cache all photo data for future retrieval
     Storage.set({
@@ -88,7 +88,7 @@ export class PhotoService {
       // already loaded into memory
       return {
         filepath: fileName,
-        webviewPath: photo.webPath,
+        webviewPath: base64Data,
       };
     }
   }
@@ -107,8 +107,8 @@ export class PhotoService {
       // Fetch the photo, read as a blob, then convert to base64 format
       const response = await fetch(photo.webPath!);
       const blob = await response.blob();
-
-      return (await this.convertBlobToBase64(blob)) as string;
+      let result= (await this.convertBlobToBase64(blob)) as string
+      return result;
     }
   }
 

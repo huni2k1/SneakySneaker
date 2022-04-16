@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActionSheetController,AlertController } from '@ionic/angular';
 import { UserPhoto, PhotoService } from '../services/photo.service';
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
+import { Storage } from '@capacitor/storage';
+import { getDatabase, onValue, ref, set } from 'firebase/database';
 
 @Component({
   selector: 'app-tab2',
@@ -8,17 +11,46 @@ import { UserPhoto, PhotoService } from '../services/photo.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
-  constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController,public alertController: AlertController) {}
+  name:string;
+  price:number;
+  nextID:number=1;
+  constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController,public alertController: AlertController) {
+    const db = getDatabase();
+    onValue(ref(db,'products'), (snapshot)=>{
+      const data=snapshot.val();
+      for(var key in data)
+          this.nextID++;
+      console.log(this.nextID);
+    })
+  }
   
-  itemSlideOpts={
+   itemSlideOpts={
     freeMode: true,
-    slidesPerView: 2.5,
+    slidesPerView: 1,
     speed:200,
     spaceBetween:5,
-    slidesOffsetBefore:10
+    slidesOffsetBefore:10,
+    slidesOffsetAfter:10
   }
-
+  handleSubmit(){
+    console.log(this.photoService.photos[0].webviewPath)
+    const db = getDatabase();
+    set(ref(db, 'products/'+this.nextID), {
+       Id:this.nextID,
+       User:"admin",
+       Sold:0,
+       Price:this.price,
+       Name:this.name,
+       ImageUrl:this.photoService.photos[0].webviewPath
+    });
+    this.nextID++;
+    this.name=""
+    this.price=0
+    this.photoService.photos[0].webviewPath=""
+  }
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
+  }
   async ngOnInit() {
     await this.photoService.loadSaved();
   }
@@ -59,4 +91,5 @@ export class Tab2Page {
     });
     await actionSheet.present();
   }
+
 }

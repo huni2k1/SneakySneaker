@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,21 +9,31 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./login-page.page.scss'],
 })
 export class LoginPagePage implements OnInit {
-
-  constructor(private route: Router, public alertController: AlertController) { }
-
+  private email: string=''
+  private password: string=''
+  constructor(private router:Router,private firebase:FirebaseService, public alertController: AlertController) { }
+  
   ngOnInit() {
   }
-
+   
   async presentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'alertBtn',
       header: 'Login Alert',
-      message: 'Login Successfully',
+      message: 'Login Failed',
       buttons: ['OK']
-    });
-
+    });    
     await alert.present();
   }
+  handleLogin(){
+  this.firebase.signIn(this.email,this.password).then((status)=>{
+    if(status){
+      this.router.navigate(["tabs"])
+    }
+    else{
+      this.presentAlert()
+    }
+  })}
+
 
 }
