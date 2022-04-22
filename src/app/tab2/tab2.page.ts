@@ -20,7 +20,6 @@ export class Tab2Page {
       const data=snapshot.val();
       for(var key in data)
           this.nextID++;
-      console.log(this.nextID);
     })
   }
   

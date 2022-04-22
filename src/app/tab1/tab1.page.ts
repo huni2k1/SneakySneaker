@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -8,7 +9,8 @@ import { IonSlides } from '@ionic/angular';
 })
 export class Tab1Page {
   adsIndex: number;
-  typeOfList1='Popular'
+  typeOfList1="Popular"
+  typeOfList2="New Arrive"
   @ViewChild('slides', {static: true}) slides: IonSlides;
   ads = [
     { "img": "assets/advertises/Advertise1.png" },
@@ -17,10 +19,10 @@ export class Tab1Page {
   ]
   slideChanged(e: any) {
     this.slides.getActiveIndex().then((index: number) => {
-        console.log(index);
         this.adsIndex=index
     });
 }
-  constructor() { }
+  constructor(private router:Router) { 
+  }
 
 }

@@ -34,6 +34,4 @@ export class LoginPagePage implements OnInit {
       this.presentAlert()
     }
   })}
-
-
 }

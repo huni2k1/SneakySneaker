@@ -1,0 +1,18 @@
+<ion-header>
+  <div class="brand-container">
+      <p>Sneaker Details</p>
+      <img class="sneaker-logo" src="./assets/sneakerlogo.png" />
+    </div>
+</ion-header>
+<div class="page-container">
+   <h2>{{this.product["Name"]}}</h2>
+   <img class="productImage" src="{{this.product['ImageUrl']}}"/>
+   <p>Price: {{this.product["Price"]}}$</p>
+   <p>Sold: {{this.product["Sold"]}}</p>
+   <div class="button-container">
+    <ion-button class="btn"  type="submit" color="primary" expand="full">Add to cart</ion-button>
+  </div>
+  <div class="button-container">
+    <ion-button class="btn"  type="submit" color="primary" expand="full">Add to Favourite</ion-button>
+  </div>
+</div>

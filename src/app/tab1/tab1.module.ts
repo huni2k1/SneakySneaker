@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { ItemListModule } from '../components/item-list/item-list.module';
-import { ItemListComponent } from '../components/item-list/item-list.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -16,8 +15,8 @@ import { ItemListComponent } from '../components/item-list/item-list.component';
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-    ItemListModule
+    ItemListModule,
   ],
-  declarations: [Tab1Page,ItemListComponent]
+  declarations: [Tab1Page]
 })
 export class Tab1PageModule {}

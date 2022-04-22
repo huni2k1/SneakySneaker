@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'item',
   templateUrl: './item.component.html',
@@ -6,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
   @Input() item={};
-  constructor() {
+  
+  constructor(private router:Router) {
   }
   ngOnInit() {
   }

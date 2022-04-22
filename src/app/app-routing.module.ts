@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path:'signup',
     loadChildren: () => import('./sign-up/sign-up.module').then(m=>m.SignUpModule)
-  }
+  },
 ];
 @NgModule({
   imports: [

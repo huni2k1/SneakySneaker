@@ -10,17 +10,26 @@ p{
     width:150px;
     height: 230px;
 }
+a{
+    text-decoration: none;
+}
 .item-price {
     font-size: larger;
     font-weight: bold;
+    color: black;
+
 }
 .item-sold{
     font-size: smaller;
+    color: black;
+
 }
-.item-name {
+.item-name{
+    color: black;
     font-family: "Fredoka", sans-serif;
     line-height: 15px;
     max-height: 50px;
     font-size: 14px;
     margin-top:10px;
 }
+

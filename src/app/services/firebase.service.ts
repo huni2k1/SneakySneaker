@@ -48,13 +48,14 @@ export class FirebaseService {
       email: email,
     });
   }
-  async getProductsInfo(){
-    let products=[];
+  async getProductsInfo(id:number){
+     let products=[];
      console.log("Getting products...")
      const db = getDatabase();
-      onValue(ref(db,'products'), (snapshot)=>{
+      onValue(ref(db,'products/'+id), (snapshot)=>{
        const data=snapshot.val();
        products=data;
      })
+     return products
   }
 }
